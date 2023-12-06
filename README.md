@@ -8,7 +8,6 @@ Instacart is an American technology company that operates as a same-day grocery 
 - Analyze the anonymized [data](https://www.kaggle.com/c/instacart-market-basket-analysis/data) of 3 million grocery orders from more than 200,000 Instacart users open sourced by Instacart 
 - Find out hidden association between products for better cross-selling and upselling
 - Perform customer segmentation for targeted marketing and anticipate customer behavior
-- Build a Machine Learning model to predict which previously purchased product will be in user’s next order
 
 ### Project Organization
 ```
@@ -17,7 +16,8 @@ Instacart is an American technology company that operates as a same-day grocery 
 ├── Data Description and Analysis.ipynb         : Initial analysis to understand data
 ├── Exploratory Data Analysis.ipynb             : EDA to analyze customer purchase pattern
 ├── Customers Segmentation.ipynb                : Customer Segmentation based on product aisles
-
+```
+<br />
 
 ## Data Description
 
@@ -35,6 +35,18 @@ Instacart is an American technology company that operates as a same-day grocery 
     - Based on the heatmap between 'Day of Week' and 'Hour of Day,' we can say that Saturday afternoons and Sunday mornings are prime time for orders.
 
 <p align="center">
-  <img width="300" height="200" src=["https://github.com/archd3sai/Instacart-Market-Basket-Analysis/blob/master/Plots/dow.png"](https://github.com/SaurabhPoman96/Instacart-Market-Basket-Analysis-/blob/main/Plots/Frequency%20of%20Day%20of%20week%20Vs%20Hour%20of%20day.png)https://github.com/SaurabhPoman96/Instacart-Market-Basket-Analysis-/blob/main/Plots/Frequency%20of%20Day%20of%20week%20Vs%20Hour%20of%20day.png>
+  <img width="300" height="200" src="["https:Plots/Frequency of Day of week Vs Hour of day.png"]">
 </p>
 
+## Customer Segmentation
+
+Customer segmentation is the process of dividing customers into groups based on common characteristics so companies can market to each group effectively and appropriately. We can perform segmentation using the data of which products users buy. Since there are thousonds of products and also thousands of customers, I utilized aisles which represent categories of products. 
+
+I then performed Principal component analysis to reduce dimensions as KMeans does not produce good results on higher dimensions. Using 10 principal components I carried out KMeans clustering. I chose optimal number of clusters as 5 using Elbow method shown below.
+
+The clustering results into 5 neat clusters and after checking most frequent products in them, we can conclude following:
+- Cluster 1 results into 5428 consumers having a very strong preference for water seltzer sparkling water aisle.
+- Cluster 2 results into 55784 consumers who mostly order fresh vegetables followed by fruits.
+- Cluster 3 results into 7948 consumers who buy packaged produce and fresh fruits mostly.
+- Cluster 4 results into 37949 consumers who have a very strong preference for fruits followed by fresh vegetables.
+- Cluster 5 results into 99100 consumers who orders products from many aisles. Their mean orders are low compared to other clusters which tells us that either they are not frequent users of Instacart or they are new users and do not have many orders yet. 
